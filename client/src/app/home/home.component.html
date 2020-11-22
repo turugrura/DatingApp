@@ -1,0 +1,22 @@
+<div class="card" *ngIf="!registerMode && !isLoggedIn">
+  <div class="p-grid p-justify-center">
+    <div class="p-col-fixed">
+      <h1>Find your match</h1>
+    </div>
+  </div>
+  <div class="p-grid p-justify-center">
+    <div class="p-col-fixed">
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Register"
+        class="p-button-raised"
+        (click)="registerToggle()"
+      ></button>
+    </div>
+  </div>
+</div>
+<div class="card" *ngIf="registerMode && !isLoggedIn">
+  <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+</div>

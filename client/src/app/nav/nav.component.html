@@ -1,0 +1,52 @@
+<!-- <div class="p-grid"> -->
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <!-- <i
+          class="pi pi-home"
+          style="font-size: 2em; cursor: pointer"
+          [routerLink]="['']"
+        ></i> -->
+  </ng-template>
+  <ng-template pTemplate="end">
+    <form autocomplete="off" *ngIf="!isLoggedin">
+      <div class="p-grid p-fluid">
+        <div class="p-col-5">
+          <input
+            id="username"
+            type="text"
+            name="username"
+            placeholder="username"
+            pInputText
+            [(ngModel)]="model.username"
+          />
+        </div>
+        <div class="p-col-5">
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="password"
+            pInputText
+            [(ngModel)]="model.password"
+          />
+        </div>
+        <div class="p-col-2">
+          <button
+            pButton
+            type="submit"
+            label="submit"
+            (click)="login()"
+          ></button>
+        </div>
+      </div>
+    </form>
+    <button
+      pButton
+      label="Logout"
+      icon="pi pi-power-off"
+      *ngIf="isLoggedin"
+      (click)="logout()"
+    ></button>
+  </ng-template>
+</p-menubar>
+<!-- </div> -->
