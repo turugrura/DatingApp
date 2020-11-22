@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { NotificationService } from '../notification/notification.service';
@@ -83,15 +82,9 @@ export class NavComponent implements OnInit {
   }
 
   login() {
-    this.accountService.login(this.model).subscribe(
-      () => {
-        this.notificationService.success('Welcome!', '');
-      },
-      (err: HttpErrorResponse) => {
-        console.log(err);
-        this.notificationService.error(err.error, '');
-      }
-    );
+    this.accountService.login(this.model).subscribe(() => {
+      this.notificationService.success('Welcome!', '');
+    });
   }
 
   logout() {
