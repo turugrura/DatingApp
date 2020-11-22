@@ -2,6 +2,7 @@
 // import { AccordionModule } from 'primeng/accordion';
 // import { AutoCompleteModule } from 'primeng/autocomplete';
 // import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { NgModule } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 // import { CalendarModule } from 'primeng/calendar';
 // import { CardModule } from 'primeng/card';
@@ -31,8 +32,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 // import { MegaMenuModule } from 'primeng/megamenu';
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
-// import { MessageModule } from 'primeng/message';
-// import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
 // import { MultiSelectModule } from 'primeng/multiselect';
 // import { OrderListModule } from 'primeng/orderlist';
 // import { OrganizationChartModule } from 'primeng/organizationchart';
@@ -63,10 +64,10 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 // import { TabViewModule } from 'primeng/tabview';
 // import { TerminalModule } from 'primeng/terminal';
 // import { TieredMenuModule } from 'primeng/tieredmenu';
-// import { ToastModule } from 'primeng/toast';
+import { ToastModule } from 'primeng/toast';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 
-export const primeModules = [
+export const modules = [
   DropdownModule,
   InputTextareaModule,
   MenuModule,
@@ -77,11 +78,14 @@ export const primeModules = [
   SplitButtonModule,
   ToggleButtonModule,
   ButtonModule,
+  ToastModule,
   RippleModule,
+  MessageModule,
+  MessagesModule,
 ];
 
-// @NgModule({
-//   imports: modules,
-//   exports: modules,
-// })
-// export class PrimeNgModule {}
+@NgModule({
+  imports: modules,
+  exports: modules,
+})
+export class PrimeNgModule {}

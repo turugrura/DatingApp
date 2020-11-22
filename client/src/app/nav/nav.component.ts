@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { NotificationService } from '../notification/notification.service';
 import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
 
@@ -14,7 +16,10 @@ export class NavComponent implements OnInit {
   isLoggedin = false;
   currentUser: User;
 
-  constructor(private accountService: AccountService) {
+  constructor(
+    private accountService: AccountService,
+    private notificationService: NotificationService
+  ) {
     this.currentUser = {
       username: '',
     };
@@ -29,39 +34,49 @@ export class NavComponent implements OnInit {
       {
         label: this.currentUser?.username,
         icon: 'pi pi-fw pi-home',
+        routerLink: '/',
         visible: this.isLoggedin,
       },
+      // {
+      //   label: 'Edit',
+      //   icon: 'pi pi-fw pi-pencil',
+      //   routerLink: '',
+      //   items: [
+      //     {
+      //       label: 'Left',
+      //       icon: 'pi pi-fw pi-align-left',
+      //     },
+      //     {
+      //       label: 'Right',
+      //       icon: 'pi pi-fw pi-align-right',
+      //     },
+      //     {
+      //       label: 'Center',
+      //       icon: 'pi pi-fw pi-align-center',
+      //     },
+      //     {
+      //       label: 'Justify',
+      //       icon: 'pi pi-fw pi-align-justify',
+      //     },
+      //   ],
+      //   visible: this.isLoggedin,
+      // },
       {
-        label: 'Edit',
-        icon: 'pi pi-fw pi-pencil',
-        items: [
-          {
-            label: 'Left',
-            icon: 'pi pi-fw pi-align-left',
-          },
-          {
-            label: 'Right',
-            icon: 'pi pi-fw pi-align-right',
-          },
-          {
-            label: 'Center',
-            icon: 'pi pi-fw pi-align-center',
-          },
-          {
-            label: 'Justify',
-            icon: 'pi pi-fw pi-align-justify',
-          },
-        ],
-        visible: this.isLoggedin,
-      },
-      {
-        label: 'Users',
+        label: 'Members',
         icon: 'pi pi-fw pi-user',
+        routerLink: ['/members'],
         visible: this.isLoggedin,
       },
       {
-        label: 'Events',
+        label: 'Lists',
+        icon: 'pi pi-fw pi-user',
+        routerLink: '/lists',
+        visible: this.isLoggedin,
+      },
+      {
+        label: 'Messages',
         icon: 'pi pi-fw pi-calendar',
+        routerLink: '/messages',
         visible: this.isLoggedin,
       },
     ];
@@ -69,9 +84,12 @@ export class NavComponent implements OnInit {
 
   login() {
     this.accountService.login(this.model).subscribe(
-      () => {},
-      (e) => {
-        console.log(e);
+      () => {
+        this.notificationService.success('Welcome!', '');
+      },
+      (err: HttpErrorResponse) => {
+        console.log(err);
+        this.notificationService.error(err.error, '');
       }
     );
   }
@@ -80,12 +98,12 @@ export class NavComponent implements OnInit {
     this.accountService.logout();
     this.isLoggedin = false;
     this.setMenuItems();
+    this.notificationService.info('Goodbye!', '');
   }
 
   getCurrentUser() {
     this.accountService.currentUser$.subscribe(
       (user) => {
-        console.log(user);
         this.isLoggedin = true;
         this.currentUser = user;
         this.setMenuItems();
