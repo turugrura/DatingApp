@@ -1,1 +1,41 @@
-<p>member-detail works!</p>
+<div *ngIf="member" class="card">
+  <div class="p-grid">
+    <div class="p-col-3">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <img
+            src="{{ member.photoUrl || './assets/user.png' }}"
+            alt="{{ member.knownAs }}"
+          />
+        </div>
+        <div class="p-col-12">{{ member.username }}</div>
+        <div class="p-col-12">{{ member.knownAs }}</div>
+        <div class="p-col-12">{{ member.gender }}</div>
+      </div>
+    </div>
+    <div class="p-col-9">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <p-tabView>
+            <p-tabPanel header="{{ 'About ' + member.knownAs }}">
+              {{ member.introduction }}
+            </p-tabPanel>
+            <p-tabPanel header="Interests">
+              {{ member.interests }}
+            </p-tabPanel>
+            <p-tabPanel header="Photos">
+              <p-galleria
+                [value]="member.photos"
+                [responsiveOptions]="responsiveOptions"
+              >
+                <ng-template pTemplate="item" let-photo>
+                  <img [src]="photo.url" [alt]="'photo'" />
+                </ng-template>
+              </p-galleria>
+            </p-tabPanel>
+          </p-tabView>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

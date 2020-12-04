@@ -21,7 +21,7 @@ import { DropdownModule } from 'primeng/dropdown';
 // import { FieldsetModule } from 'primeng/fieldset';
 // import { FileUploadModule } from 'primeng/fileupload';
 // import { FullCalendarModule } from 'primeng/fullcalendar';
-// import { GalleriaModule } from 'primeng/galleria';
+import { GalleriaModule } from 'primeng/galleria';
 // import { InplaceModule } from 'primeng/inplace';
 // import { InputMaskModule } from 'primeng/inputmask';
 // import { InputSwitchModule } from 'primeng/inputswitch';
@@ -59,9 +59,9 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 // import { SpinnerModule } from 'primeng/spinner';
 import { SplitButtonModule } from 'primeng/splitbutton';
 // import { StepsModule } from 'primeng/steps';
-// import { TableModule } from 'primeng/table';
-// import { TabMenuModule } from 'primeng/tabmenu';
-// import { TabViewModule } from 'primeng/tabview';
+import { TableModule } from 'primeng/table';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { TabViewModule } from 'primeng/tabview';
 // import { TerminalModule } from 'primeng/terminal';
 // import { TieredMenuModule } from 'primeng/tieredmenu';
 import { ToastModule } from 'primeng/toast';
@@ -82,6 +82,10 @@ export const modules = [
   RippleModule,
   MessageModule,
   MessagesModule,
+  TableModule,
+  TabMenuModule,
+  TabViewModule,
+  GalleriaModule,
 ];
 
 @NgModule({

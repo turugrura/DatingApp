@@ -1,0 +1,9 @@
+<div *ngIf="member" class="p-grid">
+  <div class="p-col-12">
+    <img
+      src="{{ member.photoUrl || './assets/user.png' }}"
+      alt="{{ member.knownAs }}"
+    />
+  </div>
+  <div class="p-col-12">{{ member.knownAs }}</div>
+</div>

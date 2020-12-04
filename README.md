@@ -63,3 +63,14 @@ Implement further funtionality into our API and gain an understanding of:
 3. Seeding Data into the Database
 4. The repository pattern
 5. Using AutoMapper
+
+## Section 9
+
+Implement the components that make up the user interface in our client application and gain an understanding of:
+
+1. Using Typescript types
+2. Using the Interceptor to send JWT tokens
+3. Using bootstrap for styling
+4. Basic css tricks to enhance the look
+5. Using a 3rd party photo gallery
+6. Using Route params

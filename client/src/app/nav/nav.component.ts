@@ -13,16 +13,12 @@ export class NavComponent implements OnInit {
   items: MenuItem[] = [];
   model: any = {};
   isLoggedin = false;
-  currentUser: User;
+  currentUser!: User;
 
   constructor(
     private accountService: AccountService,
     private notificationService: NotificationService
-  ) {
-    this.currentUser = {
-      username: '',
-    };
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getCurrentUser();
