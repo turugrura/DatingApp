@@ -2,4 +2,5 @@
 <div class="card">
   <router-outlet></router-outlet>
 </div>
+<p-progressSpinner #spinner *ngIf="busyService.isShow"></p-progressSpinner>
 <app-notification></app-notification>

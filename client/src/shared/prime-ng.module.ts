@@ -34,6 +34,7 @@ import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 // import { MultiSelectModule } from 'primeng/multiselect';
 // import { OrderListModule } from 'primeng/orderlist';
 // import { OrganizationChartModule } from 'primeng/organizationchart';
@@ -56,7 +57,7 @@ import { RippleModule } from 'primeng/ripple';
 import { SelectButtonModule } from 'primeng/selectbutton';
 // import { SlideMenuModule } from 'primeng/slidemenu';
 // import { SliderModule } from 'primeng/slider';
-// import { SpinnerModule } from 'primeng/spinner';
+import { SpinnerModule } from 'primeng/spinner';
 import { SplitButtonModule } from 'primeng/splitbutton';
 // import { StepsModule } from 'primeng/steps';
 import { TableModule } from 'primeng/table';
@@ -86,6 +87,8 @@ export const modules = [
   TabMenuModule,
   TabViewModule,
   GalleriaModule,
+  SpinnerModule,
+  ProgressSpinnerModule,
 ];
 
 @NgModule({

@@ -74,3 +74,12 @@ Implement the components that make up the user interface in our client applicati
 4. Basic css tricks to enhance the look
 5. Using a 3rd party photo gallery
 6. Using Route params
+
+## Section 10
+
+1. Angular Template forms
+2. The CanDeactivate Route Guard
+3. The @ViewChild decorator
+4. Persisting changes to the API
+5. Adding loading indicators to the client app
+6. Caching data in Angular services

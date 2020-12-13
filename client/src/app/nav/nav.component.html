@@ -44,6 +44,14 @@
     </form>
     <button
       pButton
+      label="Edit"
+      icon="pi pi-pencil"
+      class="p-button-secondary"
+      *ngIf="isLoggedin"
+      [routerLink]="'member/edit'"
+    ></button>
+    <button
+      pButton
       label="Logout"
       icon="pi pi-power-off"
       *ngIf="isLoggedin"

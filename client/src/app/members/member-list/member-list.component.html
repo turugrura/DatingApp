@@ -1,4 +1,4 @@
-<p-table [value]="members">
+<!-- <p-table [value]="members$ | async">
   <ng-template pTemplate="header">
     <tr>
       <th>userName</th>
@@ -24,10 +24,16 @@
       </td>
     </tr>
   </ng-template>
-</p-table>
+</p-table> -->
 
 <div class="p-grid">
-  <div *ngFor="let member of members" class="p-col-3">
+  <div *ngFor="let member of members$ | async" class="p-col-3">
     <app-member-card [member]="member"></app-member-card>
+    <button
+      pButton
+      type="button"
+      [label]="member.userName || member.username"
+      [routerLink]="[member.userName]"
+    ></button>
   </div>
 </div>

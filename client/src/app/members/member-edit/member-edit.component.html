@@ -1,0 +1,83 @@
+<div *ngIf="member" class="card">
+  <div class="p-fluid p-grid">
+    <div class="p-col-3">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <img
+            src="{{ member.photoUrl || './assets/user.png' }}"
+            alt="{{ member.knownAs }}"
+          />
+        </div>
+        <div class="p-col-12">{{ member.userName }}</div>
+        <div class="p-col-12">{{ member.knownAs }}</div>
+        <div class="p-col-12">{{ member.gender }}</div>
+        <div class="p-col-12">
+          <button
+            pButton
+            pRipple
+            type="button"
+            class="p-button-success"
+            label="Save"
+            type="submit"
+            form="editForm"
+            [disabled]="!editForm.dirty"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <div class="p-col-9">
+      <div class="p-grid">
+        <div class="p-col-12"></div>
+        <div class="p-col-12">
+          <p-message
+            *ngIf="editForm.dirty"
+            severity="warn"
+            text="You have made changes. Any unsaved changes will be lost"
+            styleClass="p-mr-2"
+          ></p-message>
+          <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+            <h4>Description</h4>
+            <textarea
+              [(ngModel)]="member.introduction"
+              pInputTextarea
+              name="introduction"
+              cols="30"
+              rows="3"
+            ></textarea>
+            <h4>Looking For</h4>
+            <textarea
+              [(ngModel)]="member.lookingFor"
+              pInputTextarea
+              name="lookingFor"
+              cols="30"
+              rows="3"
+            ></textarea>
+            <h4>Interests</h4>
+            <textarea
+              [(ngModel)]="member.interests"
+              pInputTextarea
+              name="interests"
+              cols="30"
+              rows="3"
+            ></textarea>
+            <h4>Location Details:</h4>
+            <label for="city">City</label>
+            <input
+              [(ngModel)]="member.city"
+              pInputText
+              type="text"
+              name="city"
+            />
+            <label for="country">Country</label>
+            <input
+              [(ngModel)]="member.country"
+              pInputText
+              type="text"
+              name="country"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
